@@ -1,6 +1,7 @@
 source "https://rubygems.org"
 
 gem "rails",                   "4.2.4"
+gem "devise"
 gem "bcrypt",                  "3.1.7"
 gem "faker",                   "1.4.2"
 gem "carrierwave",             "0.10.0"
