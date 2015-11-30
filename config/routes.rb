@@ -9,5 +9,8 @@ Rails.application.routes.draw do
       root "categories#index"
       resources :categories
     end
+
+    devise_for :users
+    resources :users
   end
 end
