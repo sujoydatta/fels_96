@@ -1,0 +1,18 @@
+<% provide :title, @user.name %>
+<h1><%= t "user_profile" %></h1>
+<div class="row">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <div class="pull-right">
+      </div>
+    </div>
+    <div class="panel-body">
+      <%= gravatar_for @user %>
+      <label><%= t "name" %></label>
+      <p class="form-control profile_align"><%= @user.name %></p>
+      <label><%= t "email" %></label>
+      <p class="form-control profile_align"><%= @user.email %></p>
+    </div>
+    <div class="panel-footer panel-course-footer"></div>
+  </div>
+</div>
