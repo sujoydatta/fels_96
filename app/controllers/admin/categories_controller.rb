@@ -1,16 +1,14 @@
 class Admin::CategoriesController < ApplicationController
-  before_action :load_category, only: [:destroy]
+  load_and_authorize_resource
 
   def index
     @categories = Category.paginate page: params[:page], per_page: 10
   end
 
   def new
-    @category = Category.new
   end
 
   def create
-    @category = Category.new category_params
     if @category.save
       flash[:success] = t "add_category_sucessful_message"
       redirect_to new_admin_category_path
@@ -28,9 +26,5 @@ class Admin::CategoriesController < ApplicationController
   private
   def category_params
     params.require(:category).permit :name
-  end
-
-  def load_category
-    @category = Category.find params[:id]
   end
 end

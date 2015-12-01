@@ -1,7 +1,12 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  after_initialize :init_admin
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :lessons
+
+  private
+  def init_admin
+    self.admin = false if self.admin.nil?
+  end
 end
