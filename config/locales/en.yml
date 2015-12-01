@@ -47,3 +47,5 @@ en:
   name: "Name"
   email: "Email"
   auth_error: "You are not authorised to do it"
+  save_change_text: "Save changes"
+  edit_category_text: "Edit Category"
