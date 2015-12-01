@@ -9,7 +9,6 @@ class UsersController < ApplicationController
   end
 
   private
-
   def load_user
     @user = User.find params[:id]
   end
