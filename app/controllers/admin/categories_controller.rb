@@ -1,4 +1,10 @@
 class Admin::CategoriesController < ApplicationController
+  before_action :load_category, only: [:destroy]
+
+  def index
+    @categories = Category.paginate page: params[:page], per_page: 10
+  end
+
   def new
     @category = Category.new
   end
@@ -13,8 +19,18 @@ class Admin::CategoriesController < ApplicationController
     end
   end
 
+  def destroy
+    @category.destroy
+    flash[:success] = t "category_delete_message"
+    redirect_to admin_categories_path
+  end
+
   private
   def category_params
     params.require(:category).permit :name
+  end
+
+  def load_category
+    @category = Category.find params[:id]
   end
 end
