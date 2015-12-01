@@ -159,7 +159,6 @@ aside {
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
 }
@@ -207,4 +206,9 @@ input {
     padding: 10px 0;
     border-bottom: 1px solid $gray-lighter;
   }
+}
+
+.profile_align{
+  margin-left: 15%;
+  width: 85%;
 }

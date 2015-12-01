@@ -1,0 +1,19 @@
+<h1><%= t "all_users" %></h1>
+
+<table class="table">
+  <thead>
+    <th><%= t "name" %></th>
+    <th><%= t "email" %></th>
+  </thead>
+  <% @users.each do |user| %>
+    <tr>
+      <td>
+        <%= gravatar_for user, size: 50 %>
+        <%= link_to user.name, user %>
+      </td>
+      <td><%= user.email %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= will_paginate %>
