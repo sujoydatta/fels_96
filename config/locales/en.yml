@@ -39,3 +39,6 @@ en:
   account_locked: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
   unlock_my_account: "Unlock my account"
   waiting_confirmation: "Currently waiting confirmation for:"
+  category_delete_message: "Category deleted"
+  all_categories: "All categories"
+  confirm_message: "You sure?"

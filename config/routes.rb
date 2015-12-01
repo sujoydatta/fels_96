@@ -12,5 +12,6 @@ Rails.application.routes.draw do
 
     devise_for :users
     resources :users
+    resources :categories, only: [:index]
   end
 end
