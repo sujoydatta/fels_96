@@ -9,4 +9,9 @@ class ApplicationController < ActionController::Base
   def default_url_options options = {}
     {locale: I18n.locale}.merge options
   end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:warning] = t "auth_error"
+    redirect_to root_path
+  end
 end
