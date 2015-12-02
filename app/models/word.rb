@@ -9,4 +9,7 @@ class Word < ActiveRecord::Base
     presence: true,
     length: {maximum: 20},
     uniqueness: {case_sensitive: false}
+
+  accepts_nested_attributes_for :word_answers, allow_destroy: true,
+    reject_if: proc {|attributes| attributes[:content].blank?}
 end
