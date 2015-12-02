@@ -55,3 +55,5 @@ en:
   cancel_account: "Cancel Account"
   leave_blank: "leave blank if you dont want to change it"
   min_char: "characters minimum"
+  add_word_sucessful_message: "Word added"
+  add_word_text: "Add Word"

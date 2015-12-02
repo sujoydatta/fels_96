@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     namespace :admin do
       root "categories#index"
       resources :categories
+      resources :words
     end
 
     devise_for :users, skip: :omniauth_callbacks,
