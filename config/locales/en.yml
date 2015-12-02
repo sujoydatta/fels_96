@@ -59,3 +59,10 @@ en:
   add_word_text: "Add Word"
   add_option: "Add option"
   remove_option: "Remove option"
+  followed: "followed successfully"
+  followed_fail: "failed to follow"
+  unfollowed: "unfollowed successfully"
+  unfollowed_fail: "failed to unfollow"
+  follow: "Follow"
+  unfollow: "Unfollow"
+

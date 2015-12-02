@@ -2,6 +2,7 @@ source "https://rubygems.org"
 
 gem "rails",                   "4.2.4"
 gem "devise"
+gem "acts_in_relation"
 gem "cancancan",               "~> 1.10"
 gem "omniauth-facebook"
 gem "omniauth-google-oauth2"

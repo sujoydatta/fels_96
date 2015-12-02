@@ -16,3 +16,28 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery_nested_form
+
+var ready;
+  ready = function() {
+    var $follow = $("a[data-remote].follow");
+    var $unfollow = $("a[data-remote].unfollow");
+
+    $follow.on('ajax:success',function(e, data, status, xhr){
+      $follow.hide();
+      $unfollow.show();
+      $unfollow.removeClass("hidden");
+    }).on('ajax:error',function(e, xhr, status, error){
+      console.log('follow failed');
+    });
+
+    $unfollow.on('ajax:success',function(e, data, status, xhr){
+      $unfollow.hide();
+      $follow.show();
+      $follow.removeClass("hidden");
+    }).on('ajax:error',function(e, xhr, status, error){
+      console.log('unfollow failed');
+    });
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
