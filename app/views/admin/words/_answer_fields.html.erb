@@ -1,0 +1,10 @@
+<%= answer_form.link_to_remove t(:remove_option) %>
+<div class="row">
+  <div class="col-lg-6">
+    <%= answer_form.text_field :content, class: "form-control" %>
+  </div>
+  <div class="col-lg-6">
+    <%= answer_form.check_box :correct, class: "checkbox_answer" %>
+    <%= answer_form.label :correct, class: "correct_answer" %>
+  </div>
+</div>

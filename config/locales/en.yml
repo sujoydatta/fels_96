@@ -57,3 +57,5 @@ en:
   min_char: "characters minimum"
   add_word_sucessful_message: "Word added"
   add_word_text: "Add Word"
+  add_option: "Add option"
+  remove_option: "Remove option"
