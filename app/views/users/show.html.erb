@@ -3,7 +3,11 @@
 <div class="row">
   <div class="panel panel-default">
     <div class="panel-heading">
-      <div class="pull-right">
+      <div>
+        <% if can? :update, @user %>
+          <%= link_to t(:edit), edit_user_registration_path,
+            class: "btn btn-default" %>
+        <% end %>
       </div>
     </div>
     <div class="panel-body">
@@ -13,6 +17,14 @@
       <label><%= t "email" %></label>
       <p class="form-control profile_align"><%= @user.email %></p>
     </div>
-    <div class="panel-footer panel-course-footer"></div>
+    <div class="panel-footer panel-course-footer">
+      <% if can? :destroy, @user %>
+        <%= link_to t(:cancel_account),
+          user_registration_path,
+          data: {confirm: t(:are_you_sure)},
+          method: :delete,
+          class: "btn btn-danger" %>
+      <% end %>
+    </div>
   </div>
 </div>
