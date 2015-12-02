@@ -53,3 +53,5 @@ en:
   profile: "Profile"
   categories: "Categories"
   cancel_account: "Cancel Account"
+  leave_blank: "leave blank if you dont want to change it"
+  min_char: "characters minimum"
