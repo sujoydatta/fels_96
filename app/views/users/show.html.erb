@@ -24,21 +24,20 @@
           data: {confirm: t(:are_you_sure)},
           method: :delete,
           class: "btn btn-danger" %>
+      <% end %>
 
-          <% unless @user == current_user %>
-            <% if current_user.following?(@user) %>
-              <%= link_to t(:follow), follow_path(@user.id), remote: true,
-                method: :put, class: "btn follow btn-primary hidden" %>
-              <%= link_to t(:unfollow), follow_path(@user.id), remote: true,
-                method: :delete, class: "btn unfollow btn-default" %>
-            <% else %>
-              <%= link_to t(:follow), follow_path(@user.id), remote: true,
-                method: :put, class: "btn follow btn-primary" %>
-              <%= link_to t(:unfollow), follow_path(@user.id), remote: true,
-                method: :delete, class: "btn unfollow btn-default hidden" %>
-            <% end %>
-          <% end %>
-
+      <% unless @user == current_user %>
+        <% if current_user.following?(@user) %>
+          <%= link_to t(:follow), follow_path(@user.id), remote: true,
+            method: :put, class: "btn follow btn-primary hidden" %>
+          <%= link_to t(:unfollow), follow_path(@user.id), remote: true,
+            method: :delete, class: "btn unfollow btn-default" %>
+        <% else %>
+          <%= link_to t(:follow), follow_path(@user.id), remote: true,
+            method: :put, class: "btn follow btn-primary" %>
+          <%= link_to t(:unfollow), follow_path(@user.id), remote: true,
+            method: :delete, class: "btn unfollow btn-default hidden" %>
+        <% end %>
       <% end %>
     </div>
   </div>
