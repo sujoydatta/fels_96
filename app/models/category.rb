@@ -1,4 +1,5 @@
 class Category < ActiveRecord::Base
+  include PublicActivity::Common
   has_many :words
   has_many :lessons
 

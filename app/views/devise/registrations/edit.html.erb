@@ -12,7 +12,7 @@
     <div> <%= t(:waiting_confirmation) %> <%= resource.unconfirmed_email %></div>
   <% end %>
 
-  <% if f.object.update_with_password? %>
+  <% if f.object.encrypted_password? %>
     <div class="field">
       <%= f.label :password %> <i>(<%= t(:leave_blank) %>)</i><br />
       <%= f.password_field :password, autocomplete: "off" %>

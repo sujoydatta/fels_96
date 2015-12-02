@@ -1,9 +1,13 @@
 class User < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked only: :update
+
+  has_many :lessons
+
   after_initialize :init_admin
 
   devise :database_authenticatable, :registerable, :omniauthable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :lessons
 
   acts_in_relation role: :self, action: :follow
 
