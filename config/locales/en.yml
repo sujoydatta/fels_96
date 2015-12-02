@@ -65,4 +65,9 @@ en:
   unfollowed_fail: "failed to unfollow"
   follow: "Follow"
   unfollow: "Unfollow"
-
+  word_delete_message: "Word deleted"
+  edit_word_text: "Edit Word"
+  all_words: "All words"
+  edit_word_sucessful_message: "Word updtaed"
+  edit_category_sucessful_message: "Category updtead"
+  edit_word_text: "Edit Word"

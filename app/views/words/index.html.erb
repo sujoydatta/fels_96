@@ -1,0 +1,18 @@
+<h1><%= t "all_words" %></h1>
+
+<table class="table">
+  <thead>
+    <th><%= t "content" %></th>
+    <th><%= t "category" %></th>
+  </thead>
+  <tbody>
+    <% @words.each do |word| %>
+      <tr>
+        <td><%= word.content %></td>
+        <td><%= word.category.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate %>
