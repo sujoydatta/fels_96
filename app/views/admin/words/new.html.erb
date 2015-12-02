@@ -1,0 +1,16 @@
+<h1><%= t "add_word_text" %></h1>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <%= form_for [:admin, @word] do |f| %>
+      <%= render "shared/error_messages", object: f.object %>
+
+      <%= f.label :category %>
+      <%= f.collection_select :category_id, Category.all, :id, :name, {prompt: false}, {class: "form-control"} %>
+
+      <%= f.label :content %>
+      <%= f.text_field :content, class: "form-control" %>
+
+      <%= f.submit t(:add_word_text), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
