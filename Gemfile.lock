@@ -37,6 +37,10 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    acts_in_relation (0.2.2)
+      caller_class
+      rails
+      verbs
     addressable (2.3.8)
     ansi (1.5.0)
     arel (6.0.3)
@@ -52,6 +56,7 @@ GEM
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
+    caller_class (0.0.1)
     cancancan (1.13.1)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
@@ -351,6 +356,9 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    verbs (2.1.4)
+      activesupport (>= 2.3.4)
+      i18n
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.0.0.beta3)
@@ -365,6 +373,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_in_relation
   bcrypt (= 3.1.7)
   bootstrap-sass (= 3.2.0.0)
   bootstrap-will_paginate (= 0.0.10)

@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :lessons
 
+  acts_in_relation role: :self, action: :follow
+
   class << self
     def from_omniauth auth
       where(auth.slice :provider, :uid).first_or_create do |user|
