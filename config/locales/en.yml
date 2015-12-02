@@ -75,3 +75,6 @@ en:
   not_following: "Not Following Anyone."
   following: "Following"
   followers: "Followers"
+  h_follow: "has followed"
+  h_unfollow: "has unfollowed"
+  category_add_activity: "has added a category"
