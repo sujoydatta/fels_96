@@ -26,12 +26,12 @@
               </a>
               <ul class="dropdown-menu">
                 <li><%= link_to t(:add_new), new_admin_word_path %></li>
-                <li><%= link_to t(:view_all), "#" %></li>
+                <li><%= link_to t(:view_all), admin_words_path %></li>
               </ul>
             </li>
           <% else %>
             <li><%= link_to t(:categories), categories_path %></li>
-            <li><%= link_to t(:words), "#" %></li>
+            <li><%= link_to t(:words), words_path %></li>
           <% end %>
           <li><%= link_to t(:users), users_path %></li>
           <li class="dropdown">

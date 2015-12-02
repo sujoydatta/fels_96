@@ -23,6 +23,7 @@ class Admin::CategoriesController < ApplicationController
 
   def update
     if @category.update_attributes category_params
+      flash[:success] = t "edit_category_sucessful_message"
       redirect_to admin_categories_path
     else
       render :edit

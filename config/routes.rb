@@ -18,5 +18,6 @@ Rails.application.routes.draw do
     resources :users
     resources :follows
     resources :categories, only: [:index]
+    resources :words, only: [:index]
   end
 end

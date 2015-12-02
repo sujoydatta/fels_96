@@ -1,0 +1,25 @@
+<h1><%= t "all_words" %></h1>
+
+<table class="table">
+  <thead>
+    <th><%= t "content" %></th>
+    <th><%= t "category" %></th>
+    <th></th>
+  </thead>
+  <tbody>
+    <% @words.each do |word| %>
+      <tr>
+        <td><%= word.content %></td>
+        <td><%= word.category.name %></td>
+        <td align="right">
+          <%= link_to t(:edit), edit_admin_word_path(word),
+            class: "btn btn-primary" %>
+          <%= link_to t(:delete), [:admin, word], method: :delete,
+            class: "btn btn-danger", data: {confirm: t(:confirm_message)} %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate %>
