@@ -8,7 +8,7 @@ class Ability
     else
       can :read, :all
       can [:update, :destroy], User, id: user.id
-      can [:create, :edit], Lesson
+      can [:create, :edit, :update], Lesson
     end
   end
 end
