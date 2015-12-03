@@ -1,6 +1,10 @@
 class LessonsController < ApplicationController
   load_and_authorize_resource
 
+  def index
+    @lessons = current_user.lessons
+  end
+
   def create
     @lesson.user = current_user
     if @lesson.save
@@ -12,6 +16,10 @@ class LessonsController < ApplicationController
   end
 
   def edit
+  end
+
+  def show
+    @lesson = Lesson.find params[:id]
   end
 
   private
