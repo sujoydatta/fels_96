@@ -71,3 +71,7 @@ en:
   edit_word_sucessful_message: "Word updtaed"
   edit_category_sucessful_message: "Category updtead"
   edit_word_text: "Edit Word"
+  no_followers: "No Followers."
+  not_following: "Not Following Anyone."
+  following: "Following"
+  followers: "Followers"

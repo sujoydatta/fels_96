@@ -39,6 +39,46 @@
             method: :delete, class: "btn unfollow btn-default hidden" %>
         <% end %>
       <% end %>
+      <div class="pull-right">
+        <button class="btn btn-default" id="show-following">
+          <%= t "following" %>
+        </button>
+        <button class="btn btn-default" id="show-followers">
+          <%= t "followers" %>
+        </button>
+      </div>
     </div>
+  </div>
+
+  <div class="followers well" id="followers">
+    <button type="button" class="close" id="hide-followers">&times;</button>
+    <hr>
+    <% if @user.followers.any? %>
+      <% @user.followers.each do |follower| %>
+        <p>
+          <%= gravatar_for follower, size: 40 %>
+          <%= link_to follower.name, follower %>
+        </p>
+        <hr>
+      <% end %>
+    <% else %>
+      <h2><code><%= t "no_followers" %></code></h2>
+    <% end %>
+  </div>
+
+  <div class="following well" id="following">
+    <button type="button" class="close" id="hide-following">&times;</button>
+    <hr>
+    <% if @user.following.any? %>
+      <% @user.following.each do |following| %>
+        <p>
+          <%= gravatar_for following, size: 40 %>
+          <%= link_to following.name, following %>
+        </p>
+        <hr>
+      <% end %>
+    <% else %>
+      <h2><code><%= t "not_following" %></code></h2>
+    <% end %>
   </div>
 </div>
