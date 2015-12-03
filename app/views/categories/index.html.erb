@@ -1,13 +1,16 @@
 <h1><%= t "all_categories" %></h1>
 
 <table class="table">
-  <thead>
-    <th><%= t "name" %></th>
-  </thead>
   <tbody>
     <% @categories.each do |category|%>
       <tr>
         <td><%= category.name %></td>
+        <td>
+          <%= form_for @lesson do |f| %>
+            <%= f.hidden_field :category_id, value: category.id %>
+            <%= f.submit t(:start_lesson), class: "btn btn-primary" %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
