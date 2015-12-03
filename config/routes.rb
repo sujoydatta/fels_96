@@ -19,5 +19,6 @@ Rails.application.routes.draw do
     resources :follows
     resources :categories, only: [:index]
     resources :words, only: [:index]
+    resources :lessons
   end
 end
