@@ -98,6 +98,7 @@ en:
   submit: "Submit"
   lesson_submitted: "Lesson Submitted"
   nil: "Nil"
+  you_learned: "You learned"
   datetime:
     order:
       - :day

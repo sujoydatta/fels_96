@@ -6,6 +6,13 @@
       <tr>
         <td><%= category.name %></td>
         <td>
+          <%= t "you_learned" %>
+          <b>
+            <%= current_user.lessons.search_by_category(category.id).
+            sum :lesson_result %> / <%= category.words.count %>
+          </b>
+        </td>
+        <td>
           <%= form_for @lesson do |f| %>
             <%= f.hidden_field :category_id, value: category.id %>
             <%= f.submit t(:start_lesson), class: "btn btn-primary" %>

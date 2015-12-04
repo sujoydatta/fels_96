@@ -21,7 +21,10 @@
         <td><%= lesson.id %></td>
         <td><%= lesson.category.name %></td>
         <td><%= l lesson.created_at, format: :short %></td>
-        <td><%= lesson.lesson_result %></td>
+        <td>
+          <%= lesson.lesson_result.nil? ? 0 : lesson.lesson_result %>
+            / <%= lesson.lesson_words.count %>
+        </td>
         <td><%= link_to t(:show), lesson_path(lesson), class: "btn btn-default" %></td>
       </tr>
     <% end %>

@@ -10,8 +10,13 @@ class Word < ActiveRecord::Base
   validates :content,
     presence: true,
     length: {maximum: 20},
-    uniqueness: {case_sensitive: false}
+    uniqueness: {scope: :category_id}
 
   accepts_nested_attributes_for :word_answers, allow_destroy: true,
     reject_if: proc {|attributes| attributes[:content].blank?}
+
+  scope :not_learn, -> user_id{where "id not IN (select word_id from
+    lesson_words where word_answer_id IN (select id from word_answers where
+    correct = \"t\") AND lesson_id IN (select id from lessons where
+    user_id = #{user_id}))"}
 end
