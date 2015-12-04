@@ -99,6 +99,9 @@ en:
   lesson_submitted: "Lesson Submitted"
   nil: "Nil"
   you_learned: "You learned"
+  all: "All"
+  learned: "Learned"
+  unlearned: "Unlearned"
   datetime:
     order:
       - :day
