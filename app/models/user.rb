@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
-  include PublicActivity::Model
-  tracked only: :update
+  include PublicActivity::Common
 
   has_many :lessons
 

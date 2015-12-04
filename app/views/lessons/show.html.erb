@@ -19,12 +19,20 @@
           <tr>
             <td><%= lesson_word.id %></td>
             <td><%= lesson_word.word.content %></td>
-            <td><%= lesson_word.word_answer.content %></td>
             <td>
-              <% if lesson_word.word_answer.correct %>
-                <label class="text-success"><%= t "correct" %></label>
+              <% if lesson_word.word_answer.nil? %>
+                <code><%= t "nil" %></code>
               <% else %>
-                <code><%= t "incorrect" %></code>
+                <%= lesson_word.word_answer.content %>
+              <% end %>
+            </td>
+            <td>
+              <% unless lesson_word.word_answer.nil? %>
+                <% if lesson_word.word_answer.correct %>
+                  <label class="text-success"><%= t "correct" %></label>
+                <% else %>
+                  <code><%= t "incorrect" %></code>
+                <% end %>
               <% end %>
             </td>
           </tr>

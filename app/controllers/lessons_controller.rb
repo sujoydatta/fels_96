@@ -2,13 +2,14 @@ class LessonsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @lessons = current_user.lessons
+    @lessons = current_user.lessons.order "created_at DESC"
   end
 
   def create
     @lesson.user = current_user
     if @lesson.save
       flash[:success] = t "lesson_started"
+      @lesson.create_activity :create, owner: current_user
       redirect_to edit_lesson_path @lesson
     else
       render :new
@@ -21,6 +22,7 @@ class LessonsController < ApplicationController
   def update
     if @lesson.update_attributes lesson_params
       flash[:success] = t "lesson_submitted"
+      @lesson.create_activity :update, owner: current_user
       redirect_to lesson_path @lesson
     else
       render :edit

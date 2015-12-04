@@ -1,4 +1,5 @@
 class Lesson < ActiveRecord::Base
+  include PublicActivity::Common
   belongs_to :user
   belongs_to :category
   has_many :lesson_words
@@ -21,6 +22,7 @@ class Lesson < ActiveRecord::Base
   end
 
   def total_correct_answer
-    lesson_words.select{|lesson_word| lesson_word.word_answer.correct?}.count
+    lesson_words.select{|lesson_word| lesson_word.word_answer.correct? unless
+      lesson_word.word_answer.nil?}.count
   end
 end
