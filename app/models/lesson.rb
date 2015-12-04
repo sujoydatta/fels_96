@@ -9,9 +9,11 @@ class Lesson < ActiveRecord::Base
 
   accepts_nested_attributes_for :lesson_words
 
+  scope :search_by_category, ->category_id {where category_id: category_id}
+
   private
   def init_words
-    @words = self.category.words.sample 10
+    @words = self.category.words.not_learn(self.user.id).sample 10
     @words.each do |word|
       self.lesson_words.build word_id: word.id
     end
