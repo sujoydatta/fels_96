@@ -1,1 +1,23 @@
 <h1><%= @lesson.category.name %></h1>
+
+<%= form_for @lesson do |f| %>
+  <ol>
+    <%= f.fields_for :lesson_words do |lesson_word| %>
+      <div class="fields">
+        <li>
+          <b><%= lesson_word.object.word.content %></b>
+        </li>
+        <ol type="a">
+          <% lesson_word.object.word.word_answers.each do |word_answer| %>
+          <div class="row">
+            <%= lesson_word.radio_button :word_answer_id, word_answer.id %>
+            <%= label :word_answer_id, word_answer.content %>
+          </div>
+          <% end %>
+        </ol> <br>
+      </div>
+      <%= lesson_word.hidden_field :word_id, value: lesson_word.object.word.id %>
+    <% end %>
+  </ol>
+  <%= f.submit t(:submit), class: "btn btn-primary" %>
+<% end %>

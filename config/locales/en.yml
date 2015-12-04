@@ -93,6 +93,8 @@ en:
   incorrect: "Incorrect"
   show: "Show"
   lessons_taken: "Lessons Taken"
+  submit: "Submit"
+  lesson_submitted: "Lesson Submitted"
   datetime:
     order:
       - :day

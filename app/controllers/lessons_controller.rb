@@ -18,13 +18,23 @@ class LessonsController < ApplicationController
   def edit
   end
 
+  def update
+    if @lesson.update_attributes lesson_params
+      flash[:success] = t "lesson_submitted"
+      redirect_to lesson_path @lesson
+    else
+      render :edit
+    end
+  end
+
   def show
     @lesson = Lesson.find params[:id]
   end
 
   private
   def lesson_params
-    params.require(:lesson).permit :category_id, :user_id
+    params.require(:lesson).permit :category_id, :user_id,
+      lesson_words_attributes: [:id, :word_id, :word_answer_id]
   end
 
   def load_lesson
