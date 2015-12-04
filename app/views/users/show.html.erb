@@ -38,6 +38,11 @@
           <%= link_to t(:unfollow), follow_path(@user.id), remote: true,
             method: :delete, class: "btn unfollow btn-default hidden" %>
         <% end %>
+      <% else %>
+        <%= link_to t(:words), words_path,
+          class: "btn btn-default" %>
+        <%= link_to t(:lessons),
+           lessons_path, class: "btn btn-default" %>
       <% end %>
       <div class="pull-right">
         <button class="btn btn-default" id="show-following">
@@ -95,5 +100,6 @@
     <% else %>
       <%= render_activity activity %><br>
     <% end %>
+    <hr>
   <% end %>
 </div>

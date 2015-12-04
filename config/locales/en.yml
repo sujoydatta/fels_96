@@ -78,6 +78,8 @@ en:
   h_follow: "has followed"
   h_unfollow: "has unfollowed"
   category_add_activity: "has added a category"
+  lesson_add_activity: "has started lesson#"
+  lesson_finish_activity: "has finished lesson#"
   start_lesson: "Start Lesson"
   lesson_started: "Lesson Started"
   search: "Search"
@@ -95,10 +97,11 @@ en:
   lessons_taken: "Lessons Taken"
   submit: "Submit"
   lesson_submitted: "Lesson Submitted"
+  nil: "Nil"
   datetime:
     order:
       - :day
       - :month
       - :year
     formats:
-      short: "%d-%m-%Y"
+      short: "%D-%m-%Y"

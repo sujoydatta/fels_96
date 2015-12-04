@@ -13,7 +13,7 @@
   </thead>
   <tbody>
   <% @lessons.each do |lesson| %>
-    <% if lesson.lesson_result.to_i < 6 %>
+    <% if lesson.lesson_result.to_i < 1 %>
       <tr class="danger">
     <% else %>
       <tr>
