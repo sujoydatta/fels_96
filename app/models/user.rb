@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   include PublicActivity::Common
+  include PrettyUrl
 
   has_many :lessons
 
