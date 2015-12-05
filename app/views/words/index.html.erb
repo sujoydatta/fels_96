@@ -5,6 +5,12 @@
   <%= f.select :category_id_eq, options_from_collection_for_select(Category.all,
     :id, :name, @search.category_id_eq), {prompt: false},
       {class: "form-control"} %>
+  <%= f.radio_button :filter_word, "all #{current_user.id}", checked: true %>
+  <%= f.label :filter_word, t(:all) %>
+  <%= f.radio_button :filter_word, "learned #{current_user.id}" %>
+  <%= f.label :filter_word, t(:learned) %>
+  <%= f.radio_button :filter_word, "unlearned #{current_user.id}" %>
+  <%= f.label :filter_word, t(:unlearned) %><br>
   <%= f.submit t(:search), class: "btn btn-primary"  %>
 <% end %>
 
