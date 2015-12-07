@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   include PublicActivity::Common
-  include PrettyUrl
+  extend FriendlyId
+  friendly_id :name, use: [:slugged, :finders]
 
   has_many :lessons
 
