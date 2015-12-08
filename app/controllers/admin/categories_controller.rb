@@ -12,6 +12,7 @@ class Admin::CategoriesController < ApplicationController
     if @category.save
       flash[:success] = t "add_category_sucessful_message"
       @category.create_activity :create, owner: current_user
+      CategoryNotifier.perform_async @category.id
       redirect_to admin_categories_path
     else
       render :new

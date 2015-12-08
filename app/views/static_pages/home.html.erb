@@ -1,7 +1,27 @@
 <div class="center jumbotron">
   <h1><%= t "welcome_message" %> <br> <%= t "system_name" %></h1>
 
-  <% unless user_signed_in? %>
+  <% if user_signed_in? %>
+    <button class="btn btn-lg btn-primary" id="show-notifications">
+      <%= t "notification" %>
+    </button>
+  <% else %>
     <%= link_to t(:sign_up_now), new_user_registration_path, class: "btn btn-lg btn-primary" %>
   <% end %>
+</div>
+
+<div class="notifications well" id="notifications">
+  <button type="button" class="close" id="hide-notifications">&times;</button>
+  <hr>
+  <% @notifications.each do |notification| %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= notification.category.name %>
+        <%= t "w_created" %>
+        <%= time_ago_in_words notification.created_at %>
+        <%= t "ago" %>
+      </div>
+    </div>
+  <% end %>
+  <hr>
 </div>

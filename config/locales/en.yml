@@ -102,6 +102,9 @@ en:
   all: "All"
   learned: "Learned"
   unlearned: "Unlearned"
+  notification: "Notifications"
+  w_created: "was created"
+  ago: "ago"
   datetime:
     order:
       - :day
