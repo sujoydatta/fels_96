@@ -40,6 +40,7 @@ var ready;
 
     $(".following").hide();
     $(".followers").hide();
+    $(".notifications").hide();
 
     $("#show-following").click(function(){
       $(".following").show();
@@ -51,12 +52,20 @@ var ready;
       $(".followers").show();
     });
 
+    $("#show-notifications").click(function(){
+      $(".notifications").show();
+    });
+
     $("#hide-followers").click(function(){
       $("#followers").fadeOut("fast");
     });
 
     $("#hide-following").click(function(){
       $("#following").fadeOut("fast");
+    });
+
+    $("#hide-notifications").click(function(){
+      $("#notifications").fadeOut("fast");
     });
 };
 
