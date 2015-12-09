@@ -264,3 +264,11 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 end
+
+Warden::Manager.after_authentication do |user,auth,opts|
+  user.create_activity :create, owner: user if user.admin?
+end
+
+Warden::Manager.before_logout do |user,auth,opts|
+  user.create_activity :destroy, owner: user if user.admin?
+end
