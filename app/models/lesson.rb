@@ -10,6 +10,7 @@ class Lesson < ActiveRecord::Base
   accepts_nested_attributes_for :lesson_words
 
   scope :search_by_category, ->category_id {where category_id: category_id}
+  scope :search_by_user, ->user_id {where user_id: user_id}
 
   private
   def init_words
