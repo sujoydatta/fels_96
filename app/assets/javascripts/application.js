@@ -16,6 +16,7 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery_nested_form
+//= require social-share-button
 
 var ready;
   ready = function() {

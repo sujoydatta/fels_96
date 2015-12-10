@@ -105,6 +105,7 @@ en:
   notification: "Notifications"
   w_created: "was created"
   ago: "ago"
+  social_share: "Oh my GOD, Look my result!!"
   datetime:
     order:
       - :day
