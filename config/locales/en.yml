@@ -107,6 +107,9 @@ en:
   ago: "ago"
   social_share: "Oh my GOD, Look my result!!"
   exam_notification: "Exam notification"
+  monthly_email_subject: "Exam statistics mail"
+  exam_statistics: "Your exam statistics"
+  exams_given: "Exams given"
   datetime:
     order:
       - :day
