@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
 
   acts_in_relation role: :self, action: :follow
 
+  scope :non_admin, ->{where.not admin: true}
+
   class << self
     def from_omniauth auth
       where(auth.slice :provider, :uid).first_or_create do |user|

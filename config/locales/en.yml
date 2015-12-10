@@ -106,6 +106,7 @@ en:
   w_created: "was created"
   ago: "ago"
   social_share: "Oh my GOD, Look my result!!"
+  exam_notification: "Exam notification"
   datetime:
     order:
       - :day
