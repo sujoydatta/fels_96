@@ -55,37 +55,23 @@
     </div>
   </div>
 
-  <div class="followers well" id="followers">
-    <button type="button" class="close" id="hide-followers">&times;</button>
-    <hr>
-    <% if @user.followers.any? %>
-      <% @user.followers.each do |follower| %>
-        <p>
-          <%= gravatar_for follower, size: 40 %>
-          <%= link_to follower.name, follower %>
-        </p>
-        <hr>
+  <% ["followers","following"].each do |f_name| %>
+    <div class="#{f_name} well" id="#{f_name}">
+      <button type="button" class="close" id="hide-#{f_name}">&times;</button>
+      <hr>
+      <% if @user.send(f_name).any? %>
+        <% @user.send(f_name).each do |f| %>
+          <p>
+            <%= gravatar_for f, size: 40 %>
+            <%= link_to f.name, f %>
+          </p>
+          <hr>
+        <% end %>
+      <% else %>
+        <h2><code><%= t "no_" + f_name %></code></h2>
       <% end %>
-    <% else %>
-      <h2><code><%= t "no_followers" %></code></h2>
-    <% end %>
-  </div>
-
-  <div class="following well" id="following">
-    <button type="button" class="close" id="hide-following">&times;</button>
-    <hr>
-    <% if @user.following.any? %>
-      <% @user.following.each do |following| %>
-        <p>
-          <%= gravatar_for following, size: 40 %>
-          <%= link_to following.name, following %>
-        </p>
-        <hr>
-      <% end %>
-    <% else %>
-      <h2><code><%= t "not_following" %></code></h2>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 
   <h1><%= t "activities" %></h1>
 
