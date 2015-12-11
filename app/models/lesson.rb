@@ -11,6 +11,11 @@ class Lesson < ActiveRecord::Base
 
   scope :search_by_category, ->category_id {where category_id: category_id}
   scope :search_by_user, ->user_id {where user_id: user_id}
+  scope :in_last_month, ->{
+    where("created_at BETWEEN ? AND ? ",
+      1.month.ago.beginning_of_month.strftime("%Y-%m-%d"),
+      1.month.ago.end_of_month.strftime("%Y-%m-%d"))
+  }
 
   private
   def init_words
