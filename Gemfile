@@ -35,6 +35,7 @@ gem "awesome_print", require:"ap"
 gem "whenever", require: false
 
 group :development, :test do
+  gem "rspec-rails", "~> 3.0"
   gem "sqlite3",     "1.3.9"
   gem "byebug",      "3.4.0"
   gem "web-console", "2.0.0.beta3"
@@ -42,6 +43,9 @@ group :development, :test do
 end
 
 group :test do
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
   gem "minitest-reporters", "1.0.5"
   gem "mini_backtrace",     "0.1.3"
   gem "guard-minitest",     "2.3.1"
