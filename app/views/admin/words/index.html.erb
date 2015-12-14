@@ -9,17 +9,15 @@
   <tbody>
     <% @words.each do |word| %>
       <tr>
-        <td><%= word.content %></td>
-        <td><%= word.category.name %></td>
+        <td><%= word["content"] %></td>
+        <td><%= word["category_name"] %></td>
         <td align="right">
-          <%= link_to t(:edit), edit_admin_word_path(word),
+          <%= link_to t(:edit), edit_admin_word_path(word["id"]),
             class: "btn btn-primary" %>
-          <%= link_to t(:delete), [:admin, word], method: :delete,
+          <%= link_to t(:delete), admin_word_path(word["id"]), method: :delete,
             class: "btn btn-danger", data: {confirm: t(:confirm_message)} %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<%= will_paginate %>
