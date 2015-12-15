@@ -8,4 +8,11 @@ class Category < ActiveRecord::Base
     presence: true,
     length: {maximum: 30},
     uniqueness: {case_sensitive: false}
+
+  def min_json options = {}
+    {
+      id: id,
+      name: name
+    }.merge(options)
+  end
 end

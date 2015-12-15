@@ -110,6 +110,7 @@ en:
   monthly_email_subject: "Exam statistics mail"
   exam_statistics: "Your exam statistics"
   exams_given: "Exams given"
+  unsucessful: "Unsucessful"
   datetime:
     order:
       - :day
