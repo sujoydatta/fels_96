@@ -2,7 +2,12 @@ class Admin::CategoriesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @categories = Category.paginate page: params[:page], per_page: 10
+    respond_to do |format|
+      @categories = Category.paginate page: params[:page], per_page: 10
+      format.html {}
+      format.json {render json: @categories.to_json(only: [:id, :name])}
+    end
+
   end
 
   def new
@@ -10,13 +15,22 @@ class Admin::CategoriesController < ApplicationController
 
   def create
     if @category.save
-      flash[:success] = t "add_category_sucessful_message"
       @category.create_activity :create, owner: current_user
       CategoryCreateNotification.new(@category.id).create_notification
       ExamNotification.new(@category.id).send_email
-      redirect_to admin_categories_path
+
+      respond_to do |format|
+        format.html do
+          flash[:success] = t "add_category_sucessful_message"
+          redirect_to admin_categories_path
+        end
+        format.json {render json: {message: t(:add_category_sucessful_message)}}
+      end
     else
-      render :new
+      respond_to do |format|
+        format.html {render :new}
+        format.json {render json: {message: t(:unsucessful)}}
+      end
     end
   end
 
@@ -25,17 +39,30 @@ class Admin::CategoriesController < ApplicationController
 
   def update
     if @category.update_attributes category_params
-      flash[:success] = t "edit_category_sucessful_message"
-      redirect_to admin_categories_path
+      respond_to do |format|
+        format.html do
+          flash[:success] = t "edit_category_sucessful_message"
+          redirect_to admin_categories_path
+        end
+        format.json {render json: {message: t(:edit_category_sucessful_message)}}
+      end
     else
-      render :edit
+      respond_to do |format|
+        format.html {render :edit}
+        format.json {render json: {message: t(:unsucessful)}}
+      end
     end
   end
 
   def destroy
     @category.destroy
-    flash[:success] = t "category_delete_message"
-    redirect_to admin_categories_path
+    respond_to do |format|
+      format.html do
+        flash[:success] = t "category_delete_message"
+        redirect_to admin_categories_path
+      end
+      format.json {render json: {message: t(:category_delete_message)}}
+    end
   end
 
   private
