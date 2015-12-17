@@ -5,7 +5,6 @@ describe Word do
     FactoryGirl.create(:word).should be_valid
   end
 
-  it "is invalid without content" do
-    FactoryGirl.build(:word, content: nil).should_not be_valid
-  end
+  it {should validate_presence_of :category_id}
+  it {should validate_presence_of :content}
 end

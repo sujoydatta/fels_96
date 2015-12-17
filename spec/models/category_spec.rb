@@ -5,7 +5,5 @@ describe Category do
     FactoryGirl.create(:category).should be_valid
   end
 
-  it "is invalid without a name" do
-    FactoryGirl.build(:category, name: nil).should_not be_valid
-  end
+  it {should validate_presence_of :name}
 end
