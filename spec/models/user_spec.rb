@@ -6,24 +6,10 @@ describe User do
     FactoryGirl.create(:user).should be_valid
   end
 
-  it "is invalid without an email" do
-    FactoryGirl.build(:user, email: nil).should_not be_valid
-  end
-
-  it "has many lessons" do
-    t = User.reflect_on_association :lessons
-    expect(t.macro).to eq :has_many
-  end
-
-  it "has many following" do
-    t = User.reflect_on_association :following
-    expect(t.macro).to eq :has_many
-  end
-
-  it "has many followers" do
-    t = User.reflect_on_association :followers
-    expect(t.macro).to eq :has_many
-  end
+  it {should validate_presence_of :email}
+  it {should have_many :lessons}
+  it {should have_many :following}
+  it {should have_many :followers}
 
   describe "has abilities" do
     context "when is an admin account" do

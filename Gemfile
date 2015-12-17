@@ -48,6 +48,7 @@ group :test do
   gem "guard-rspec"
   gem "minitest-reporters", "1.0.5"
   gem "mini_backtrace",     "0.1.3"
+  gem "shoulda-matchers", "~> 2.5.0"
   gem "guard-minitest",     "2.3.1"
 end
 
