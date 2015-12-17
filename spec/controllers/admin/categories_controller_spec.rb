@@ -38,7 +38,7 @@ describe Admin::CategoriesController do
     end
 
     context "create with invalid attributes or name blank" do
-      before {post :create, category: FactoryGirl.attributes_for(:category)}
+      before {post :create, category: FactoryGirl.attributes_for(:category, name: "")}
       it {expect(response).to render_template :new}
       it {expect(response).to have_http_status :ok}
     end
