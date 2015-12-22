@@ -2,7 +2,7 @@ require "rails_helper"
 
 describe Notification do
   it "has a valid factory" do
-    FactoryGirl.create(:notification).should be_valid
+    expect(FactoryGirl.create :notification).to be_valid
   end
 
   it {should belong_to :category}

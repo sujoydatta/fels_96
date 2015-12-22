@@ -26,7 +26,7 @@ describe Admin::CategoriesController do
   describe "PUT #update" do
     it "should redirect to the categories path on succesful save" do
       put :update, {id:category1.id, category: {name: "rails"}}
-      response.should redirect_to admin_categories_path
+      expect(response).to redirect_to admin_categories_path
     end
   end
   describe "POST #create" do
