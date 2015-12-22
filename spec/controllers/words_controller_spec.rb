@@ -11,8 +11,8 @@ describe WordsController do
     it {expect(response).to have_http_status :ok}
 
     it "populates list of words" do
-      expect(assigns(:words)).to include word
-      expect(assigns(:words)).to include another_word
+      expect(assigns :words).to include word
+      expect(assigns :words).to include another_word
     end
   end
 end
