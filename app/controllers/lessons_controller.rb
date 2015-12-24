@@ -2,7 +2,7 @@ class LessonsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @lessons = current_user.lessons.order "created_at DESC"
+    @lessons = current_user.lessons.order("created_at DESC").decorate
   end
 
   def create
@@ -30,7 +30,7 @@ class LessonsController < ApplicationController
   end
 
   def show
-    @lesson = Lesson.find params[:id]
+    @lesson = Lesson.find(params[:id]).decorate
   end
 
   private
