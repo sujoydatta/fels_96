@@ -12,6 +12,6 @@ class UsersController < ApplicationController
 
   private
   def load_user
-    @user = User.find params[:id]
+    @user = User.find(params[:id]).decorate
   end
 end
