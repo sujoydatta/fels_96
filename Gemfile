@@ -50,6 +50,7 @@ group :test do
   gem "selenium-webdriver"
   gem "guard-rspec"
   gem "database_cleaner"
+  gem "rspec-html-matchers"
   gem "minitest-reporters", "1.0.5"
   gem "mini_backtrace",     "0.1.3"
   gem "shoulda-matchers", "~> 2.5.0"

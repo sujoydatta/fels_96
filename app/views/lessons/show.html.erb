@@ -19,22 +19,8 @@
           <tr>
             <td><%= lesson_word.id %></td>
             <td><%= lesson_word.word.content %></td>
-            <td>
-              <% if lesson_word.word_answer.nil? %>
-                <code><%= t "nil" %></code>
-              <% else %>
-                <%= lesson_word.word_answer.content %>
-              <% end %>
-            </td>
-            <td>
-              <% unless lesson_word.word_answer.nil? %>
-                <% if lesson_word.word_answer.correct %>
-                  <label class="text-success"><%= t "correct" %></label>
-                <% else %>
-                  <code><%= t "incorrect" %></code>
-                <% end %>
-              <% end %>
-            </td>
+            <td><%= lesson_word.show_result %></td>
+            <td><%= lesson_word.show_correct %></td>
           </tr>
         <% end %>
       </tbody>

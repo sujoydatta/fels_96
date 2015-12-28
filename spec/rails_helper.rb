@@ -41,6 +41,11 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
   config.include Devise::TestHelpers, type: :controller
   Capybara.javascript_driver = :webkit
+  config.include RSpecHtmlMatchers
+
+  Draper::ViewContext.test_strategy :fast do
+    include ApplicationHelper
+  end
 
   config.before(:suite) do
     DatabaseCleaner.clean_with :truncation
